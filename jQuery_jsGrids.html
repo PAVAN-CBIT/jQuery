@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid</title>
+        <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.css">
+        <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/jsgrid/dist/jsgrid.js"></script>
+        <script>
+            $(function(){
+                window.products = [];
+
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://fakestoreapi.com/products',
+                    success: function(data){
+                        products = data;
+                        $("#jsGrid").jsGrid({
+                    height: "800",
+                    width: "100%",
+
+                    filtering: true,
+                    editing: true,
+                    sorting: true,
+                    paging: true,
+                    autoload: true,
+
+                    data: products,
+
+                    fields: [
+                        {name: 'title', type: 'text', width: 140},
+                        {name: 'price', type: 'number', width: 140},
+                        {name: 'description', type: 'text', width:300}
+                    ],
+
+                })
+                    }
+                })
+               
+               
+            })
+        </script>
+    </head>
+    <body>
+        <div id="jsGrid" style="height: 800px;">
+
+        </div>
+    </body>
+</html>
