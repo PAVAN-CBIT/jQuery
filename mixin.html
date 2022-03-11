@@ -1,0 +1,19 @@
+@mixin SetSpace($border) {
+    div {
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 2px 2px 2px gray;
+        border:$border;
+    }
+}
+@include SetSpace(2px solid red);
+@include SetSpace(4px dotted green);
+
+Syntax: function
+
+@function  referenceName(params)
+{
+   @return  value;
+}
+
+referenceName(actualValues);
